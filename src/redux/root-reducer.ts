@@ -1,6 +1,8 @@
+import { combineReducers } from '@ngrx/store';
+import { default as cellsReducer } from '../cells/redux/cells-reducer';
+import { Reducer, AnyAction } from 'redux';
 import { RootState } from './root-state';
-import { Action } from 'redux';
 
-export const rootReducer = (state: RootState, action: Action) => {
-    return state;
-};
+export const rootReducer = combineReducers({
+    cells: cellsReducer
+}) as Reducer<RootState, AnyAction>;

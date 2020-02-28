@@ -1,1 +1,6 @@
-<p>{{(message$ | async)}}</p>
+<input [(ngModel)]="cellName">
+
+<button (click)="addCell()">Add cell</button>
+<button (click)="clear()">Clear</button>
+
+<p *ngFor="let cell of (cells$ | async)">Cell {{cell.cellName}}</p>
