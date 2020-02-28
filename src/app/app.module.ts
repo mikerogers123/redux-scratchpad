@@ -7,6 +7,8 @@ import { NgRedux, NgReduxModule } from '@angular-redux/store';
 import { RootState, INITIAL_STATE } from 'src/redux/root-state';
 import { rootReducer } from 'src/redux/root-reducer';
 import { HomeComponent } from 'src/home/home.component';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,11 @@ import { HomeComponent } from 'src/home/home.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgReduxModule
+    NgReduxModule,
+    StoreModule.forRoot(rootReducer),
+    StoreDevtoolsModule.instrument({
+      maxAge: 5
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
